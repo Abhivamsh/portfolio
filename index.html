@@ -6,7 +6,7 @@
 <title>Abhivamsh Kalwala — Full Stack Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --purple: #8B5CF6;
@@ -37,35 +37,6 @@
     color: var(--text);
     font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* ── CUSTOM CURSOR ── */
-  #cursor {
-    position: fixed;
-    width: 12px; height: 12px;
-    background: var(--purple);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background 0.2s;
-    box-shadow: 0 0 12px var(--purple), 0 0 24px var(--purple-glow);
-  }
-  #cursor-trail {
-    position: fixed;
-    width: 32px; height: 32px;
-    border: 1px solid var(--purple-glow);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: left 0.12s ease, top 0.12s ease;
-  }
-  body:has(a:hover) #cursor, body:has(button:hover) #cursor {
-    width: 20px; height: 20px;
-    background: var(--blue);
-    box-shadow: 0 0 20px var(--blue), 0 0 40px var(--blue-glow);
   }
 
   /* ── LOADER ── */
@@ -88,13 +59,6 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     animation: pulse-glow 1.5s ease-in-out infinite;
-  }
-  .loader-jp {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    letter-spacing: 0.4em;
-    margin-top: 8px;
   }
   .loader-bar {
     width: 200px; height: 2px;
@@ -170,17 +134,11 @@
   }
   .nav-links a:hover { color: var(--blue); }
   .nav-links a:hover::after { width: 100%; }
-  .nav-jp {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.65rem;
-    color: var(--text-faint);
-    letter-spacing: 0.2em;
-  }
   .hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
-    cursor: none;
+    cursor: pointer;
     background: none;
     border: none;
     padding: 4px;
@@ -200,11 +158,15 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 80px 8% 0;
     overflow: hidden;
   }
   .hero-inner {
-    max-width: 800px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
     animation: hero-in 1.2s cubic-bezier(0.22,1,0.36,1) both;
     animation-delay: 2.2s;
   }
@@ -240,12 +202,39 @@
     font-size: clamp(2.2rem, 6vw, 4.5rem);
     font-weight: 900;
     line-height: 1.05;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
+    flex: 0 0 auto;
+    text-align: center;
     background: linear-gradient(135deg, #fff 0%, var(--blue) 40%, var(--purple) 80%, var(--pink) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 0 30px var(--purple-glow));
+  }
+  .hero-identity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .hero-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    padding: 4px;
+    box-shadow: 0 0 40px var(--purple-glow);
+    flex: 0 0 auto;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
   }
   .hero-sub {
     font-family: 'Rajdhani', sans-serif;
@@ -255,10 +244,14 @@
     letter-spacing: 0.08em;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero-type-wrap {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     margin-bottom: 2.5rem;
   }
@@ -285,6 +278,7 @@
   .hero-buttons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
   }
   .btn {
@@ -299,7 +293,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
-    cursor: none;
+    cursor: pointer;
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
@@ -343,20 +337,6 @@
     background: rgba(244,114,182,0.08);
     transform: translateY(-2px);
     box-shadow: 0 0 30px var(--pink-glow);
-  }
-  .hero-jp {
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 5rem;
-    font-weight: 300;
-    color: rgba(139,92,246,0.06);
-    writing-mode: vertical-rl;
-    letter-spacing: 0.5rem;
-    user-select: none;
-    pointer-events: none;
   }
   .scroll-hint {
     position: absolute;
@@ -442,18 +422,6 @@
     border-color: var(--purple);
     box-shadow: 0 0 40px var(--purple-dim), 0 20px 60px rgba(0,0,0,0.4);
   }
-  .about-avatar {
-    width: 80px; height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--purple), var(--blue));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Orbitron', monospace;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 0 30px var(--purple-glow);
-  }
   .about-name {
     font-family: 'Orbitron', monospace;
     font-size: 1.1rem;
@@ -522,7 +490,6 @@
     border-radius: 10px;
     padding: 1.5rem 1rem;
     text-align: center;
-    cursor: none;
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
@@ -567,7 +534,6 @@
     padding: 2rem;
     position: relative;
     overflow: hidden;
-    cursor: none;
     transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
     transform-style: preserve-3d;
   }
@@ -643,7 +609,7 @@
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    cursor: none;
+    cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
     border: 1px solid rgba(139,92,246,0.3);
@@ -740,7 +706,7 @@
     text-decoration: none;
     color: var(--text);
     transition: all 0.3s;
-    cursor: none;
+    cursor: pointer;
   }
   .contact-link:hover {
     border-color: var(--purple);
@@ -814,7 +780,7 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    cursor: none;
+    cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0 0 20px var(--purple-glow);
   }
@@ -848,12 +814,6 @@
     color: var(--text-faint);
     font-family: 'Space Mono', monospace;
     text-align: center;
-  }
-  .footer-jp {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.7rem;
-    color: var(--text-faint);
-    letter-spacing: 0.2em;
   }
 
   /* ── REVEAL ── */
@@ -921,16 +881,16 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-jp { display: none; }
     .hud-corner { display: none; }
     .nav-links { display: none; }
-    .nav-jp { display: none; }
     .hamburger { display: flex; }
     .projects-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     .section-wrapper { padding: 70px 5%; }
     #hero { padding: 80px 5% 0; }
+    .hero-identity { flex-direction: column; align-items: center; }
+    .hero-photo { width: 120px; height: 120px; }
     .skills-grid { grid-template-columns: repeat(3, 1fr); }
     .hero-buttons { flex-direction: column; }
     .btn { width: 100%; justify-content: center; }
@@ -940,13 +900,9 @@
 </head>
 <body>
 
-<div id="cursor"></div>
-<div id="cursor-trail"></div>
-
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-text">INITIALIZING</div>
-  <div class="loader-jp">起動中・・・</div>
   <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
 
@@ -966,7 +922,7 @@
 <div class="hud-corner hud-br">
   ABHIVAMSH.DEV<br>
   FULL STACK // AI // WEB3<br>
-  プログラマー // 開発者
+  PROGRAMMER // DEVELOPER
 </div>
 
 <!-- NAVBAR -->
@@ -980,7 +936,6 @@
     <li><a href="#experience">Journey</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-jp">アビバムシュ・カルワラ</div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -998,7 +953,12 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-tag">Full Stack Developer · Hyderabad, India</div>
-    <h1 class="hero-name">Abhivamsh<br>Kalwala</h1>
+    <div class="hero-identity">
+      <h1 class="hero-name">Abhivamsh<br>Kalwala</h1>
+      <div class="hero-photo">
+        <img src="abhi-dp.jpeg" alt="Abhivamsh Kalwala">
+      </div>
+    </div>
     <p class="hero-sub">Java &amp; React Enthusiast &nbsp;|&nbsp; AI &amp; Web3 Explorer<br>Building the future, one commit at a time.</p>
     <div class="hero-type-wrap">
       <span class="hero-type-label">// role:</span>
@@ -1010,7 +970,6 @@
       <a href="#contact" class="btn btn-ghost">✦ Contact Me</a>
     </div>
   </div>
-  <div class="hero-jp">開発者<br>建築者<br>探求者</div>
   <div class="scroll-hint">
     <span>SCROLL</span>
     <div class="scroll-hint-line"></div>
@@ -1027,7 +986,6 @@
     </div>
     <div class="about-grid">
       <div class="about-card reveal">
-        <div class="about-avatar">AK</div>
         <div class="about-name">Abhivamsh Kalwala</div>
         <div class="about-role">B.Tech CS Student · Aspiring Full Stack Dev</div>
         <p class="about-text">I'm a Computer Science student driven by the desire to build impactful real-world software. Inspired by the relentless resolve of anime protagonists, I approach every problem as a final boss to defeat.</p>
@@ -1295,8 +1253,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">ABHIVAMSH.DEV</div>
-  <div class="footer-text">© 2025 · Built with passion · カルワラ アビバムシュ</div>
-  <div class="footer-jp">開発者ポートフォリオ</div>
+  <div class="footer-text">© 2025 · Built with passion</div>
 </footer>
 
 <script>
@@ -1305,18 +1262,6 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
   }, 2400);
-});
-
-// ── CURSOR ──
-const cursor = document.getElementById('cursor');
-const trail = document.getElementById('cursor-trail');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  setTimeout(() => {
-    trail.style.left = e.clientX + 'px';
-    trail.style.top = e.clientY + 'px';
-  }, 80);
 });
 
 // ── NAV SCROLL ──
